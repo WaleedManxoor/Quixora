@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Result</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="bg"></div> <!-- Background -->
+<div class="result-container">
+  <h2>Your Score:</h2>
+  <h1 id="score"></h1>
+
+  <p id="remark"></p>
+
+  <button onclick="restartQuiz()" class="btn-large">Restart Quiz</button>
+</div>
+
+<script>
+  const score = localStorage.getItem("score") || 0;
+  document.getElementById("score").innerText = score;
+
+  let msg = "Keep Improving!";
+  if(score > 15) msg = "Excellent!";
+  else if(score > 10) msg = "Good Job!";
+
+  document.getElementById("remark").innerText = msg;
+
+  function restartQuiz(){
+    window.location.href = "quiz.html";
+  }
+</script>
+</body>
+</html>
